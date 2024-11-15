@@ -26,8 +26,8 @@ public class FileManager {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
            while (bufferedReader.ready()){
               fileWriter(Cypher.cypher(bufferedReader.readLine(), key));
-            }
-        } catch (Exception e) {
+           }
+        } catch (Exception e) {    // обработать эксепшны
             throw new RuntimeException(e);
         }
     }
@@ -35,7 +35,6 @@ public class FileManager {
     public void fileWriter(String outString){
         try(BufferedWriter bufferedWriter = new BufferedWriter( new FileWriter(newFile, true))){
             bufferedWriter.write(outString);
-           // bufferedWriter.newLine();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
